@@ -63,9 +63,13 @@ div.content {
 
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="{{url('/')}}/addcategory">Add Category</a>
+  <a href="{{url('/')}}/updatecategory">Update category</a>
+  <a href="{{url('/')}}/sub_category">Add subcategory</a>
+  <a href="{{url('/')}}/updatesub_category">Update subcategory</a>
+  <a href="{{url('/')}}/addbrand">Add new brand</a>
+  <a href="{{url('/')}}/admin_allbrands">Update brands</a>
+  <a href="#about">Logout</a>
 </div>
 
 <div class="content">
