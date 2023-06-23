@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>all categories</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
   </head>
   <body>
   <nav class="navbar bg-body-tertiary">
@@ -42,20 +45,32 @@
       <td>{{ $cat->description }}</td>
       <td><img src="img/{{ $cat->image }}" style="max-height:100px;max-width:150px;" alt=""></td>
       <td><?php if($cat->status==1){echo "<font style='color:green;'>available</font>";}else{ echo "<font style='color:red;'>empty</font>"; }  ?></td>
-      <td> <form action="{{url('/')}}/updatecategoryrec" method="get"> @csrf <input type="hidden" value="{{ $cat->id }}" name="categoryid" id="categoryid" required> <input type="submit" class="btn btn-dark" value="Edit"></form> </td>
+      <td> <form action="{{url('/')}}/updatecategoryrec" method="get"> @csrf <input type="hidden" value="{{ $cat->id }}" name="categoryid" id="categoryid" required> <i class="bi bi-pencil-square"></i> <input type="submit" class="btn btn-dark" value="Edit" style="display:none;"></form>  <i class="bi bi-trash"></i> <i class="bi bi-cloud-arrow-up"></i> </td>
     </tr>
     @endforeach
 
   </tbody>
 </table>
+<script>
+  $("i").click(function () {
+  $("input[type='submit']").trigger('click');
+});
 
+$('input[type="submit"]').on('change', function() {
+  var val = $(this).val();
+  $(this).siblings('span').text(val);
+})
+</script>
     </div>
     <div class="col-1"></div>
 </div>
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
+
+
 </html>
 
 

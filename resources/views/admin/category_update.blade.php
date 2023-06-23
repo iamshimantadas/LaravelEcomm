@@ -41,9 +41,12 @@
 </select>
     <!-- <input type="text" value="1" class="form-control" name="category_status" id="category_status" required> -->
   </div>
+
+<!-- image preview before and after upload -->
   <div class="mb-3">
+    <img src="img/{{ $cat->image }}" id="preview-selected-image" height="50" width="50" alt="">
   <label for="category_img_file" class="form-label">Select product image</label>
-  <input class="form-control" type="file" id="category_img_file" name="category_img_file" required>
+  <input class="form-control" type="file" id="category_img_file" name="category_img_file" value="{{ $cat->image }}" onchange="previewImage(event);">
 </div>
   <button type="submit" class="btn btn-warning">Update</button>
 </form>
@@ -58,6 +61,44 @@
 
 
 </body>
+
+<script>
+  /**
+ * Create an arrow function that will be called when an image is selected.
+ */
+const previewImage = (event) => {
+    /**
+     * Get the selected files.
+     */
+    const imageFiles = event.target.files;
+    /**
+     * Count the number of files selected.
+     */
+    const imageFilesLength = imageFiles.length;
+    /**
+     * If at least one image is selected, then proceed to display the preview.
+     */
+    if (imageFilesLength > 0) {
+        /**
+         * Get the image path.
+         */
+        const imageSrc = URL.createObjectURL(imageFiles[0]);
+        /**
+         * Select the image preview element.
+         */
+        const imagePreviewElement = document.querySelector("#preview-selected-image");
+        /**
+         * Assign the path to the image preview element.
+         */
+        imagePreviewElement.src = imageSrc;
+        /**
+         * Show the element by changing the display value to "block".
+         */
+        imagePreviewElement.style.display = "block";
+    }
+};
+</script>
+
 </html>
 
 
