@@ -7,6 +7,10 @@ use App\Http\Controllers\updatecategorycontroller;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\subcategoryController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\ProductController;
+
+// user controllers
+ use App\Http\Controllers\HomePageController;
 
 // admin routes
 Route::get('/admin', function () {
@@ -43,3 +47,10 @@ Route::get('/addbrand',function(){
 });
 Route::post('/addbrandrec',[BrandsController::class,'create']);
 Route::get('/admin_allbrands',[BrandsController::class,'allbrandsrec']);
+
+Route::get('/addnewproduct',[ProductController::class,'show']);
+Route::post('/addproduct_data',[ProductController::class,'save']);
+
+
+// user rooutes
+Route::get('/',[HomePageController::class,'show']);
