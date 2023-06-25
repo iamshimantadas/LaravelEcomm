@@ -40,10 +40,14 @@
 </nav>
 
 <style>
-    .hvreffect:hover {
+      .hvreffect:hover {
   background-color: black;
   color:white;
 }
+</style>
+
+
+<style>
 .ptext{
     font-size:30px;
     color:black;
@@ -63,7 +67,7 @@
   <div class="card-body">
     <h5 class="card-title">{{ $product->title }}</h5>
     <p class="card-text">{{ $product->descp }}</p>
-    <form action="" method="get"> @csrf <input type="hidden" value="{{ $product->id }}" name="productid" id="productid" required> <input class="btn btn-dark" type="submit" value="show"> </form>
+    <form action="{{url('/')}}/showProduct" method="get"> @csrf <input type="hidden" value="{{ $product->id }}" name="productid" id="productid" required> <input class="btn btn-dark" type="submit" value="show"> </form>
   </div>
 </div>
    </div>

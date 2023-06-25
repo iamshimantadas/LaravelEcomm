@@ -1,5 +1,9 @@
 <?php
 
+/*
+mentioned every controller usage
+*/
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\AddcategoryController;
@@ -11,6 +15,9 @@ use App\Http\Controllers\ProductController;
 
 // user controllers
  use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\showProductController;
+use App\Http\Controllers\checkoutController;
+
 
 // admin routes
 Route::get('/admin', function () {
@@ -54,3 +61,6 @@ Route::post('/addproduct_data',[ProductController::class,'save']);
 
 // user rooutes
 Route::get('/',[HomePageController::class,'show']);
+Route::get('/showProduct',[showProductController::class,'show']);
+
+Route::get('/checkOut',[checkoutController::class,'bill']);
